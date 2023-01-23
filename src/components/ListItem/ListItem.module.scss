@@ -1,0 +1,75 @@
+.listItem {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  padding: 24px 50px 25px 16px;
+  justify-content: space-between;
+  background-color: var(--app-white);
+  transition: 0.3s background-color ease;
+
+  &:first-child {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  &:not(:last-child)::after {
+    content: '';
+    left: 16px;
+    opacity: 1;
+    z-index: 1;
+    height: 1px;
+    bottom: -1px;
+    position: absolute;
+    display: inline-block;
+    width: calc(100% - 32px);
+    background-color: var(--app-gray-5);
+    transition: 0.3s opacity ease;
+  }
+
+  &:hover {
+    background-color: var(--app-gray-5);
+
+    &::after {
+      opacity: 0;
+    }
+  }
+
+  &.invited {
+    .userInfo {
+      .userName {
+        color: var(--app-gray-2);
+      }
+    }
+  }
+
+  .userInfo {
+    .userName {
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 24px;
+      font-style: normal;
+      color: var(--app-black);
+    }
+  }
+
+  .userActions {
+    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .chevron {
+    top: 50%;
+    right: 16px;
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+  }
+}
